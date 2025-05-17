@@ -34,6 +34,12 @@ async def on_startup():
     else:
         logging.info("Webhook already set correctly.")
 
+@app.get("/hourly-trigger")
+async def hourly_trigger():
+    logging.info(f"hourly-trigger")
+    #await bot.send_message(chat_id, "Hourly message")
+    return {"status": "sent"}
+
 @app.on_event("shutdown")
 async def on_shutdown():
     logging.info("Shutting down bot session.")
